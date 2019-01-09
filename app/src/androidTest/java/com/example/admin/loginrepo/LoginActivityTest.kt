@@ -26,7 +26,7 @@ class LoginActivityTest {
     }
 
     @Test
-    fun enterValidEmailPassword_successfulResponseFromBackend_openMainActivity(){
+    fun enterValidEmailPassword_successfulResponseFromBackend_openMainActivity() {
         val email = "abc@gmail.com"
         val password = "abcdef"
 
@@ -38,6 +38,31 @@ class LoginActivityTest {
                 .clickLogin()
                 .sendMockedSuccessfulResponse()
                 .isMainActivityOpen()*/
+    }
+
+    @Test
+    fun enterValidEmailPassword_failureResponseFromBackend_shouldShowFailureMessage() {
+
+    }
+
+    @Test
+    fun loginWithEmailPasswordEmpty_shouldShowEmptyEmailError() {
+
+    }
+
+    @Test
+    fun loginWithPasswordEmpty_shouldShowEmptyPasswordError(){
+
+    }
+
+    @Test
+    fun loginWithInvalidEmail_shouldShowInvalidEmailError() {
+
+    }
+
+    @Test
+    fun loginWithInvalidPassword_shouldShowInvalidPasswordError() {
+
     }
 
 }
