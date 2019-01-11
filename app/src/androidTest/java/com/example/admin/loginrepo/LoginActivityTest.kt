@@ -30,14 +30,14 @@ class LoginActivityTest {
         val email = "abc@gmail.com"
         val password = "abcdef"
 
-        /*robot
+        robot
                 .launch(main)
                 .checkEmailPasswordAndLoginViewsAreVisible()
                 .enterEmail()
                 .enterPassword()
                 .clickLogin()
                 .sendMockedSuccessfulResponse()
-                .isMainActivityOpen()*/
+                .isMainActivityOpen()
     }
 
     @Test

@@ -7,7 +7,34 @@ import android.support.test.rule.ActivityTestRule
  * Created by Sanket on 07/01/19.
  */
 class LoginRobot {
-    fun launch(main: ActivityTestRule<LoginActivity>) {
+
+    fun launch(main: ActivityTestRule<LoginActivity>): LoginRobot {
         main.launchActivity(LoginActivity.newIntent(InstrumentationRegistry.getTargetContext()))
+        return this
+    }
+
+    fun checkEmailPasswordAndLoginViewsAreVisible(): LoginRobot {
+        EspressoUtils.isViewVisible(R.id.etEmail)
+        return this
+    }
+
+    fun enterEmail(): LoginRobot {
+        return this
+    }
+
+    fun enterPassword(): LoginRobot {
+        return this
+    }
+
+    fun clickLogin(): LoginRobot {
+        return this
+    }
+
+    fun sendMockedSuccessfulResponse(): LoginRobot {
+        return this
+    }
+
+    fun isMainActivityOpen(): LoginRobot {
+        return this
     }
 }
