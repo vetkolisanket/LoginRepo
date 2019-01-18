@@ -20,19 +20,25 @@ class LoginRobot {
         return this
     }
 
-    fun enterEmail(): LoginRobot {
+    fun enterEmail(email: String): LoginRobot {
+        EspressoUtils.enterText(R.id.etEmail, email)
         return this
     }
 
-    fun enterPassword(): LoginRobot {
+    fun enterPassword(password: String): LoginRobot {
+        EspressoUtils.enterText(R.id.etPassword, password)
         return this
     }
 
     fun clickLogin(): LoginRobot {
+        EspressoUtils.performClick(R.id.btnLogin)
         return this
     }
 
-    fun sendMockedSuccessfulResponse(): LoginRobot {
+    fun sendMockedSuccessfulResponse(main: ActivityTestRule<LoginActivity>): LoginRobot {
+        main.runOnUiThread {
+            main.activity.onLoginSuccess()
+        }
         return this
     }
 

@@ -1,5 +1,6 @@
 package com.example.admin.loginrepo
 
+import android.support.test.espresso.intent.Intents
 import android.support.test.rule.ActivityTestRule
 import org.junit.Before
 import org.junit.Test
@@ -30,14 +31,18 @@ class LoginActivityTest {
         val email = "abc@gmail.com"
         val password = "abcdef"
 
+        Intents.init()
+
         robot
                 .launch(main)
                 .checkEmailPasswordAndLoginViewsAreVisible()
-                .enterEmail()
-                .enterPassword()
+                .enterEmail(email)
+                .enterPassword(password)
                 .clickLogin()
-                .sendMockedSuccessfulResponse()
+                .sendMockedSuccessfulResponse(main)
                 .isMainActivityOpen()
+
+        Intents.release()
     }
 
     @Test
