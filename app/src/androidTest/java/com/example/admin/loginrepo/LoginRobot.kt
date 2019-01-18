@@ -15,6 +15,8 @@ class LoginRobot {
 
     fun checkEmailPasswordAndLoginViewsAreVisible(): LoginRobot {
         EspressoUtils.isViewVisible(R.id.etEmail)
+        EspressoUtils.isViewVisible(R.id.etPassword)
+        EspressoUtils.isViewVisible(R.id.btnLogin)
         return this
     }
 
