@@ -45,4 +45,16 @@ class LoginRobot {
     fun isMainActivityOpen(): LoginRobot {
         return this
     }
+
+    fun sendMockedFailureResponse(main: ActivityTestRule<LoginActivity>, errorMessage: String): LoginRobot {
+        main.runOnUiThread {
+            main.activity.showError(errorMessage)
+        }
+        return this
+    }
+
+    fun isErrorVisibleInSnackbar(message: String) {
+        EspressoUtils.isTextVisibleInSnackbar(message)
+    }
+
 }

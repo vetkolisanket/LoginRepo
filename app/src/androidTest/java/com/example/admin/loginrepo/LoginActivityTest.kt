@@ -47,7 +47,18 @@ class LoginActivityTest {
 
     @Test
     fun enterValidEmailPassword_failureResponseFromBackend_shouldShowFailureMessage() {
+        val email = "abc@gmail.com"
+        val password = "abcdef"
+        val errorMessage = "Something went wrong, please try again after some time"
 
+        robot
+                .launch(main)
+                .checkEmailPasswordAndLoginViewsAreVisible()
+                .enterEmail(email)
+                .enterPassword(password)
+                .clickLogin()
+                .sendMockedFailureResponse(main, errorMessage)
+                .isErrorVisibleInSnackbar(errorMessage)
     }
 
     @Test
