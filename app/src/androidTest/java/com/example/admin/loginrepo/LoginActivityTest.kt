@@ -63,7 +63,14 @@ class LoginActivityTest {
 
     @Test
     fun loginWithEmailPasswordEmpty_shouldShowEmptyEmailError() {
+        /*val errorMessage = "Email cannot be empty"
 
+        robot
+                .launch(main)
+                .clickLogin()
+                .verifyValidateInputWasCalled(mockPresenter)
+                .sendMockedFailureResponse(main, errorMessage)
+                .isErrorVisibleInSnackbar(errorMessage)*/
     }
 
     @Test

@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 /**
  * Created by Sanket on 05/01/19.
  */
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity(), ILoginContract.View {
 
     companion object {
         fun newIntent(context: Context): Intent {
@@ -18,17 +18,33 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Lifecycle
+     */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
     }
 
-    fun onLoginSuccess() {
+    /**
+     * Contract
+     */
+
+    override fun goToMainActivity() {
         startActivity(MainActivity.newIntent(this))
     }
 
-    fun showError(errorMessage: String) {
-        Snackbar.make(parentContainer, errorMessage, Snackbar.LENGTH_SHORT).show()
+    override fun showMessage(message: String) {
+        Snackbar.make(parentContainer, message, Snackbar.LENGTH_SHORT).show()
+    }
+
+    override fun showEmailEmptyError() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showPasswordEmptyError() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }

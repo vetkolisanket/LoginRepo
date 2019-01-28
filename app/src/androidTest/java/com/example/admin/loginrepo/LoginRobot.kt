@@ -37,7 +37,7 @@ class LoginRobot {
 
     fun sendMockedSuccessfulResponse(main: ActivityTestRule<LoginActivity>): LoginRobot {
         main.runOnUiThread {
-            main.activity.onLoginSuccess()
+            main.activity.goToMainActivity()
         }
         return this
     }
@@ -48,13 +48,17 @@ class LoginRobot {
 
     fun sendMockedFailureResponse(main: ActivityTestRule<LoginActivity>, errorMessage: String): LoginRobot {
         main.runOnUiThread {
-            main.activity.showError(errorMessage)
+            main.activity.showMessage(errorMessage)
         }
         return this
     }
 
     fun isErrorVisibleInSnackbar(message: String) {
         EspressoUtils.isTextVisibleInSnackbar(message)
+    }
+
+    fun verifyValidateInputWasCalled(mockPresenter: LoginPresenter): LoginRobot {
+        return this
     }
 
 }
